@@ -1,0 +1,103 @@
+﻿<Window x:Class="Calculator_P2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Calculator"
+        Height="650" Width="400">
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+
+            <StackPanel Margin="0,0,10,0">
+                <TextBlock Text="Режим"/>
+                <ComboBox x:Name="ModeBox" Width="150" SelectionChanged="ModeChanged">
+                    <ComboBoxItem Content="Обычный"/>
+                    <ComboBoxItem Content="Инженерный"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Тема"/>
+                <ComboBox x:Name="ThemeBox" Width="120" SelectionChanged="ThemeChanged">
+                    <ComboBoxItem Content="Светлая"/>
+                    <ComboBoxItem Content="Тёмная"/>
+                    <ComboBoxItem Content="Синяя"/>
+                    <ComboBoxItem Content="Зелёная"/>
+                </ComboBox>
+            </StackPanel>
+
+        </StackPanel>
+
+        <TextBox x:Name="Display"
+                 Grid.Row="1"
+                 Height="60"
+                 FontSize="28"
+                 IsReadOnly="True"
+                 TextAlignment="Right"/>
+
+        <GroupBox Header="История вычислений"
+          Grid.Row="2"
+          Margin="0,5,0,5"
+          Height="120">
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ListBox x:Name="HistoryList"/>
+            </ScrollViewer>
+
+        </GroupBox>
+
+
+        <UniformGrid Grid.Row="4" Columns="4">
+
+            <Button Content="7" Click="Button_Click"/>
+            <Button Content="8" Click="Button_Click"/>
+            <Button Content="9" Click="Button_Click"/>
+            <Button Content="/" Click="Button_Click"/>
+
+            <Button Content="4" Click="Button_Click"/>
+            <Button Content="5" Click="Button_Click"/>
+            <Button Content="6" Click="Button_Click"/>
+            <Button Content="*" Click="Button_Click"/>
+
+            <Button Content="1" Click="Button_Click"/>
+            <Button Content="2" Click="Button_Click"/>
+            <Button Content="3" Click="Button_Click"/>
+            <Button Content="-" Click="Button_Click"/>
+
+            <Button Content="0" Click="Button_Click"/>
+            <Button Content="=" Click="Equals_Click"/>
+            <Button Content="C" Click="Clear_Click"/>
+            <Button Content="+" Click="Button_Click"/>
+
+        </UniformGrid>
+        <UniformGrid Grid.Row="3" Columns="4">
+
+            <Button x:Name="BtnSin" Content="sin" Click="Function_Click" Visibility="Collapsed"/>
+            <Button x:Name="BtnCos" Content="cos" Click="Function_Click" Visibility="Collapsed"/>
+            <Button x:Name="BtnTan" Content="tan" Click="Function_Click" Visibility="Collapsed"/>
+            <Button x:Name="BtnLog" Content="log" Click="Function_Click" Visibility="Collapsed"/>
+
+            <Button x:Name="BtnPow" Content="^" Click="Button_Click" Visibility="Collapsed"/>
+            <Button x:Name="BtnSqrt" Content="sqrt" Click="Function_Click" Visibility="Collapsed"/>
+            <Button x:Name="BtnInv" Content="inv" Click="Function_Click" Visibility="Collapsed"/>
+            <Button x:Name="BtnPercent" Content="%" Click="Button_Click" Visibility="Collapsed"/>
+
+        </UniformGrid>
+
+
+        <Button Grid.Row="5"
+                Content="Очистить историю"
+                Height="35"
+                Click="ClearHistory_Click"/>
+
+    </Grid>
+</Window>
